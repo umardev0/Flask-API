@@ -5,10 +5,12 @@ import pandas as pd
 app = Flask(__name__)
 
 #File cached as Pandas DataFrame
-# file = 'https://srv-file4.gofile.io/download/j84UTV/pickup_times.csv'
-file = 'pickup_times.csv'
-df = pd.read_csv(file , parse_dates=['iso_8601_timestamp'])
-df = df.set_index('iso_8601_timestamp')
+file = 'https://srv-file4.gofile.io/download/j84UTV/pickup_times.csv'
+# file = 'pickup_times.csv'
+df = pd.read_csv(file)
+df.columns = ['location_id', 'timestamp', 'pickup_time']
+df['timestamp'] = pd.to_datetime(df['timestamp'])
+df = df.set_index('timestamp')
 df = df.tz_localize(None)
 
 @app.route('/median_pickup_time', methods=['GET'])
