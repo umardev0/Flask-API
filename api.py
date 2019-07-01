@@ -8,7 +8,11 @@ app = Flask(__name__)
 file = 'https://srv-file4.gofile.io/download/j84UTV/pickup_times.csv'
 # file = 'pickup_times.csv'
 df = pd.read_csv(file)
+print('+++++++++')
+print(df.columns)
 df.columns = ['location_id', 'timestamp', 'pickup_time']
+print(df.columns)
+print('+++++++++')
 df['timestamp'] = pd.to_datetime(df['timestamp'])
 df = df.set_index('timestamp')
 df = df.tz_localize(None)
