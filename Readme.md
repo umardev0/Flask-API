@@ -57,4 +57,8 @@ file = 'pickup_times.csv'
 ```
 
 ### Heroku Deployment (Optional)
-You can deploy the API to Heroku also. Required libraries and settings have been added in the source code.
+You can deploy the API to Heroku also. Required libraries and settings have been added in the source code. The deployed API can be tested from following link.
+
+```
+https://umardev0-wolt.herokuapp.com/median_pickup_time?location_id=12&start_time=2019-01-09T11:00:00&end_time=2019-01-09T12:00:00
+```
