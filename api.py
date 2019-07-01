@@ -4,16 +4,16 @@ import pandas as pd
 
 app = Flask(__name__)
 
-df = pd.read_csv('pickup_times.csv', parse_dates=['iso_8601_timestamp'])
-df = df.set_index('iso_8601_timestamp')
 #File cached as Pandas DataFrame
+df = pd.read_csv('https://srv-file4.gofile.io/download/j84UTV/pickup_times.csv', parse_dates=['iso_8601_timestamp'])
+df = df.set_index('iso_8601_timestamp')
+df = df.tz_localize(None)
 
 @app.route('/median_pickup_time', methods=['GET'])
 def median_pickup_time():
     location_id = request.args.get("location_id", 0, type=int)
     start_time = request.args.get("start_time")
     end_time = request.args.get("end_time")
-    print(end_time)
 
     #Check if all arguments are available and in correct format
     if (not location_id) or (not start_time) or (not end_time) or (not is_datetime(start_time)) or (not is_datetime(end_time)):
