@@ -1,7 +1,5 @@
 # Median Time Calculator
 
-|build status|_
-
 [![Build Status](https://travis-ci.org/umardev0/Flask-API.svg?branch=master)](https://travis-ci.org/umardev0/Flask-API)
 
 This is a REST API built with Flask in Python to calculate median pick up time for a location.
